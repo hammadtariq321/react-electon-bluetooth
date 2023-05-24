@@ -2,6 +2,29 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
+
+  const handleClick = async () => {
+    console.log("navigator", navigator)
+    const device = await navigator.bluetooth.requestDevice({
+      acceptAllDevices: true
+    })
+    console.log('device:', device)
+    if (device) {
+      let bleDevice = device;
+      bleDevice.gatt
+        .connect()
+        .then((server) => {
+          // bleGattServer = server;
+          // setBleGattServer(server)
+          // setConnected(true);
+          console.log('BLE Connected', server);
+        })
+        .catch((error) => {
+          console.log('error', error);
+        });
+    }
+  }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -17,6 +40,7 @@ function App() {
         >
           Learn React
         </a>
+        <button onClick={handleClick}>Click Me</button>
       </header>
     </div>
   );

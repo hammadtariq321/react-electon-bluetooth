@@ -2,6 +2,8 @@
   "name": "fiddle-react",
   "version": "0.1.0",
   "private": true,
+  "main": "./main.js",
+  "homepage": "./",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -15,7 +17,32 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "start-electron": "electron .",
+    "start-build": "electron-builder"
+  },
+  "build": {
+    "appId": "com.example.my-electron-app",
+    "directories": {
+      "output": "dist" 
+    },
+    "files": [
+      "build/**/*",
+      "node_modules/**/*",
+      "main.js",
+      "preload.js",
+      "index.html"
+    ],
+    "extends": null,
+    "win": {
+      "target": "nsis" 
+    },
+    "mac": {
+      "target": "dmg" 
+    },
+    "linux": {
+      "target": ["deb", "rpm", "AppImage"] 
+    }
   },
   "eslintConfig": {
     "extends": [
@@ -34,5 +61,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "electron": "^24.3.1",
+    "electron-builder": "^23.6.0"
   }
 }
