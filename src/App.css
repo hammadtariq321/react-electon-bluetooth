@@ -1,38 +1,80 @@
-.App {
-  text-align: center;
+.overflow-auto::-webkit-scrollbar {
+    display: none;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.overflow-auto::-webkit-scrollbar-track {
+    background-color: transparent;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.overflow-auto::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 9999px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.active #active {
+    background-color: #6750A4;
+    border: 0 0 0 2px #6750A4;
 }
 
-.App-link {
-  color: #61dafb;
+/* custom scroll bar */
+/* Set the width and height of the scrollbar */
+::-webkit-scrollbar {
+    width: 7px;
+    height: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Set the background color of the scrollbar track */
+::-webkit-scrollbar-track {
+    background-color: #292929;
+}
+
+/* Set the color and border radius of the scrollbar thumb */
+::-webkit-scrollbar-thumb {
+    background-color: #666;
+    border-radius: 5px;
+}
+
+/* Set the color of the scrollbar thumb when hovered */
+::-webkit-scrollbar-thumb:hover {
+    background-color: #444;
+}
+
+
+.header-gradient {
+    background: linear-gradient(174deg, rgba(6, 56, 60, 1) 0%, rgba(77, 29, 32, 1) 100%)
+}
+
+
+#showOnHover {
+    display: none;
+    animation: heartAnimation 0.5s ease-in-out forwards;
+}
+
+#list-item:hover #showOnHover {
+    display: block;
+    animation-name: heartAnimationHover;
+}
+
+@keyframes heartAnimation {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes heartAnimationHover {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1.2);
+    }
 }
